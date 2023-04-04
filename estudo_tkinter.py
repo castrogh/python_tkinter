@@ -24,7 +24,14 @@ janela = Tk()
 
 janela.title("Cotações - US$, EUR e BTC")
 
-txt_cotacao = Label(janela, text="Clique no botão abaixo para ver as cotações")
-txt_cotacao.grid(column=0, row=0)
+txt_clique = Label(janela, text="Clique no botão abaixo para ver as cotações")
+txt_clique.grid(column=0, row=0)
+
+btn_cotacao = Button(janela, text="Clique Aqui!", command = pegar_cotacoes) #ao passar a função pegar_cotacoes, como um parâmetro, sem os (), estou informando que ela só deve ser executada quando o botão for clicado, caso fosse passada com os (), a função seria executada automaticamente
+btn_cotacao.grid(column=0, row=1)
+
+txt_cotacoes = Label(janela, text="As cotações serão mostradas aqui")
+txt_cotacoes.grid(column=0, row=2)
+
 
 janela.mainloop()
