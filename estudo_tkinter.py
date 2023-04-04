@@ -22,6 +22,9 @@ pegar_cotacoes()
 
 janela = Tk()
 
-janela.title("LALAU")
+janela.title("Cotações - US$, EUR e BTC")
+
+txt_cotacao = Label(janela, text="Clique no botão abaixo para ver as cotações")
+txt_cotacao.grid(column=0, row=0)
 
 janela.mainloop()
