@@ -1,5 +1,12 @@
 import requests
 from tkinter import *
+from twilio.rest import Client
+
+# Your Account SID from twilio.com/console
+account_sid = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+# Your Auth Token from twilio.com/console
+auth_token  = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+client = Client(account_sid, auth_token)
 
 def pegar_cotacoes():
     requisicao = requests.get("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL,AUD-BRL")
@@ -19,13 +26,12 @@ def pegar_cotacoes():
 
     lbl_cotacoes["text"] = texto #ao utlizar o ["text"], estou modificando o parâmetro text da variavel lbl_cotacoes para o conteúdo da variável texto
 
+    message = client.messages.create(
+        to="+5511988614529", 
+        from_="+15856328139",
+        body= texto)
 
 janela = Tk()
-janela.geometry("700x400")
-janela.maxsize(width=900, height=600)
-janela.minsize(width=500, height=250)
-
-
 
 janela.title("Cotações - US$, EUR e BTC")
 
